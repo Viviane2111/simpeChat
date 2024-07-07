@@ -1,5 +1,7 @@
-import Home from "../components/Home";
+import Chat from "../components/Chat";
 
-export default function Index() {
-  return <Home />;
-}
+const HomePage = () => {
+  return <Chat />;
+};
+
+export default HomePage;
