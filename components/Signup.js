@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 import { signup } from "../store/userSlice";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(signup(username, password));
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  await dispatch(signup(username, password));
+  router.push("/");
+};
 
   return (
     <form onSubmit={handleSubmit}>

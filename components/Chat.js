@@ -31,7 +31,7 @@ const Chat = () => {
         { message: newMessage },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      setMessages((prevMessages) => [...prevMessages, response.data]);
+      setMessages((prevMessages) => [response.data, ...prevMessages]);
       setNewMessage("");
     } catch (error) {
       console.error(error);
@@ -52,12 +52,11 @@ const Chat = () => {
         type="text"
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
-        placeholder="Type your message here..."
+        placeholder="Tapez votre message ici..."
       />
-      <button onClick={handleSendMessage}>Send</button>
+      <button onClick={handleSendMessage}>Envoyer</button>
     </div>
   );
 };
 
 export default Chat;
-
